@@ -1,9 +1,9 @@
 {
-  "name": "youtube-subtitle-downloader",
+  "name": "ytstd",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/index.js",
   "author": "Tomasz Ciborski <tilosag@gmail.com>",
-  "license": "MIT",
+  "license": "UNLICENSED",
   "bin": "./bin/cli.js",
   "keywords": ["youtube", "subtitle", "downloader", "subtitles", "download", "video", "text"],
   "dependencies": {
