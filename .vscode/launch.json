@@ -12,7 +12,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}/bin/cli.js",
-            "args": ["list-languages","XDaIXBO6Lr8"]
+            "args": ["list-languages","bMIIpR_eQCI"]
         },
         {
             "type": "node",
