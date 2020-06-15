@@ -22,12 +22,28 @@ I’m worried we might grow apart.
 00:00:29,045 --> 00:00:30,042
 Hello, everyone.
 
-.../snip/...
+...snip...
 ```
 
 ## Installation
 ```bash
 npm install --global ytstd
+```
+
+## Usage
+
+```
+$ ytstd help list-languages
+Usage: ytstd list-languages [options] <video-id>
+
+list available subtitle languages
+```
+
+```
+$ ytstd help download-subtitles
+Usage: ytstd download-subtitles [options] <video-id> <language-code>
+
+downloads subtitles for given 2-letter language code and output SRT
 ```
 
 ## Help
