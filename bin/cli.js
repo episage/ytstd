@@ -1,6 +1,7 @@
 #!/usr/bin/env node
+const os = require('os');
 const { program } = require('commander');
-const { listLanguages, donwloadSubtitles } = require('../src');
+const { listLanguages, donwloadSubtitles, toSrtTimeString } = require('../src');
 
 (async function () {
     program
@@ -19,12 +20,17 @@ const { listLanguages, donwloadSubtitles } = require('../src');
         .command('download-subtitles <video-id> <language-code>')
         .description('downloads subtitles for given 2-letter language code and output SRT')
         .action(async (videoId, languageCode) => {
-            const result = await donwloadSubtitles(videoId, languageCode);
-            if (result === null) {
+            const srtObjects = await donwloadSubtitles(videoId, languageCode);
+            if (srtObjects === null) {
                 console.error(`"${videoId}" does not have "${languageCode}" subtitles`)
                 return;
             }
-            process.stdout.write(result);
+
+            const str = srtObjects.map(({ id, fromSeconds, toSeconds, text }) => {
+                return `${id}\n${toSrtTimeString(fromSeconds)} --> ${toSrtTimeString(toSeconds)}\n${text}\n\n`;
+            }) + '\n';
+
+            process.stdout.write(str);
         });
 
     program.parse(process.argv);

@@ -1,6 +1,5 @@
 var xml2js = require('xml2js');
-const fetch = require('node-fetch');
-var os = require('os');
+var fetch = require('node-fetch');
 var _ = require('lodash');
 
 async function listLanguages(videoId) {
@@ -23,23 +22,29 @@ async function donwloadSubtitles(videoId, languageCode) {
     if (!jso) {
         return null;
     }
-    var srt = jso.transcript.text.map((t, idx) => {
+    var srtObjects = jso.transcript.text.map((t, idx) => {
         var text = t["_"];
         var start = parseFloat(t["$"].start);
         var duration = parseFloat(t["$"].dur);
 
-        return `${idx + 1}\n${toSrtTime(start)} --> ${toSrtTime(start + duration)}\n${text || ''}\n\n`;
-    }).join('');
-    return srt + '\n';
+        return {
+            id: idx + 1,
+            fromSeconds: start,
+            toSeconds: start + duration,
+            text: text || '',
+        }
+    });
+    return srtObjects;
 }
 
 module.exports = {
     listLanguages,
     donwloadSubtitles,
+    toSrtTimeString,
 }
 
-const padTime = (str, len) => _.padStart(str, len, '0');
-function toSrtTime(secondsTotal) {
+var padTime = (str, len) => _.padStart(str, len, '0');
+function toSrtTimeString(secondsTotal) {
     // 00:00:08,509 --> 00:00:09,927
     const ms = `${Math.floor((secondsTotal % 1) * 1000)}`.substring(0, 2);
     const s = Math.floor(secondsTotal % 60);
