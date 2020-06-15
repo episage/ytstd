@@ -41,6 +41,7 @@ module.exports = {
     listLanguages,
     donwloadSubtitles,
     toSrtTimeString,
+    toSrt,
 }
 
 var padTime = (str, len) => _.padStart(str, len, '0');
@@ -51,4 +52,11 @@ function toSrtTimeString(secondsTotal) {
     const m = Math.floor(secondsTotal / 60);
     const h = Math.floor(secondsTotal / (60 * 60));
     return `${padTime(h, 2)}:${padTime(m, 2)}:${padTime(s, 2)},${padTime(ms, 3)}`;
+}
+
+function toSrt(srtObjects) {
+    const str = srtObjects.map(({ id, fromSeconds, toSeconds, text }) => {
+        return `${id}\n${toSrtTimeString(fromSeconds)} --> ${toSrtTimeString(toSeconds)}\n${text}\n\n`;
+    }) + '\n';
+    return str;
 }

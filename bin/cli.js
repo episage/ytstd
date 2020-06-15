@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const os = require('os');
 const { program } = require('commander');
-const { listLanguages, donwloadSubtitles, toSrtTimeString } = require('../src');
+const { listLanguages, donwloadSubtitles, toSrt } = require('../src');
 
 (async function () {
     program
@@ -26,9 +26,7 @@ const { listLanguages, donwloadSubtitles, toSrtTimeString } = require('../src');
                 return;
             }
 
-            const str = srtObjects.map(({ id, fromSeconds, toSeconds, text }) => {
-                return `${id}\n${toSrtTimeString(fromSeconds)} --> ${toSrtTimeString(toSeconds)}\n${text}\n\n`;
-            }) + '\n';
+            const str = toSrt(srtObjects);
 
             process.stdout.write(str);
         });
