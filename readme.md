@@ -48,6 +48,7 @@ downloads subtitles for given 2-letter language code and output SRT
 
 ## Help
 ```bash
+$ ytstd help
 Usage: cli [options] [command]
 
 Options:
