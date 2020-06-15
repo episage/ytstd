@@ -22,7 +22,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}/bin/cli.js",
-            "args": ["download-subtitles","XDaIXBO6Lr8","en"]
+            "args": ["download-subtitles","_jLPgqbBR3E","en-US"]
         }
     ]
 }

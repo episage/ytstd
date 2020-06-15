@@ -31,7 +31,7 @@ async function donwloadSubtitles(videoId, languageCode) {
             id: idx + 1,
             fromSeconds: start,
             toSeconds: start + duration,
-            text: text || '',
+            text: unescape(text || ''),
         }
     });
     return srtObjects;
