@@ -21,6 +21,9 @@ async function donwloadSubtitles(videoId, languageCode) {
     var xml = await (await fetch(url)).text();
     var parser = new xml2js.Parser();
     var jso = await parser.parseStringPromise(xml)
+    if (!jso) {
+        return null;
+    }
     var srt = jso.transcript.text.map((t, idx) => {
         var text = t["_"];
         var start = parseFloat(t["$"].start);

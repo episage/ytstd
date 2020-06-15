@@ -9,7 +9,7 @@ const { listLanguages, donwloadSubtitles } = require('../src');
         .action(async (videoId) => {
             const result = await listLanguages(videoId)
             if (result === null) {
-                console.error(`${videoId} does not have any subtitles`)
+                console.error(`"${videoId}" does not have any subtitles`)
                 return;
             }
             process.stdout.write(result);
@@ -19,7 +19,12 @@ const { listLanguages, donwloadSubtitles } = require('../src');
         .command('download-subtitles <video-id> <language-code>')
         .description('downloads subtitles for given 2-letter language code and output SRT')
         .action(async (videoId, languageCode) => {
-            process.stdout.write(await donwloadSubtitles(videoId, languageCode));
+            const result = await donwloadSubtitles(videoId, languageCode);
+            if (result === null) {
+                console.error(`"${videoId}" does not have "${languageCode}" subtitles`)
+                return;
+            }
+            process.stdout.write(result);
         });
 
     program.parse(process.argv);
