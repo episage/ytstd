@@ -1,6 +1,6 @@
 {
   "name": "ytstd",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "YouTube subtitles downloader",
   "main": "src/index.js",
   "author": "Tomasz Ciborski <tilosag@gmail.com>",
