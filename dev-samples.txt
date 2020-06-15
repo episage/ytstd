@@ -1,0 +1,25 @@
+dev samples:
+=======
+
+1
+00:00:08,509 --> 00:00:09,927
+Las noticias nunca terminan.
+
+2
+00:00:10,094 --> 00:00:12,012
+Transmitiendo desde el 1080
+de Ciudad Gótica Radio.
+
+{
+    "_": "I’m worried we might grow apart.",
+    "$": {
+      "start": "14.751",
+      "dur": "4.343"
+    }
+  },
+  {
+    "$": {
+      "start": "19.094",
+      "dur": "9.952"
+    }
+  },
