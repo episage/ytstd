@@ -9,7 +9,7 @@ async function listLanguages(videoId) {
     var jso = await parser.parseStringPromise(xml)
     var tracks = _.get(jso, 'transcript_list.track');
     if (!tracks) {
-        return null;
+        return [];
     }
     return tracks.map(t => t['$'].lang_code);
 }

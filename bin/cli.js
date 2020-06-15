@@ -9,7 +9,7 @@ const { listLanguages, donwloadSubtitles, toSrtTimeString } = require('../src');
         .description('list available subtitle languages')
         .action(async (videoId) => {
             const langs = await listLanguages(videoId)
-            if (langs === null) {
+            if (langs.length === 0) {
                 console.error(`"${videoId}" does not have any subtitles`)
                 return;
             }
