@@ -22,7 +22,7 @@ async function donwloadSubtitles(videoId, languageCode) {
         var start = parseFloat(t["$"].start);
         var duration = parseFloat(t["$"].dur);
 
-        return `${idx}\n${toSrtTime(start)} --> ${toSrtTime(start + duration)}\n${text}\n\n`;
+        return `${idx}\n${toSrtTime(start)} --> ${toSrtTime(start + duration)}\n${text || ''}\n\n`;
     }).join('');
     return srt + '\n';
 }
