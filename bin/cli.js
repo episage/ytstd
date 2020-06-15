@@ -7,12 +7,12 @@ const { listLanguages, donwloadSubtitles } = require('../src');
         .command('list-languages <video-id>')
         .description('list available subtitle languages')
         .action(async (videoId) => {
-            const result = await listLanguages(videoId)
-            if (result === null) {
+            const langs = await listLanguages(videoId)
+            if (langs === null) {
                 console.error(`"${videoId}" does not have any subtitles`)
                 return;
             }
-            process.stdout.write(result);
+            process.stdout.write(langs.join(os.EOL) + os.EOL);
         })
 
     program

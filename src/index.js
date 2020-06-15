@@ -12,8 +12,7 @@ async function listLanguages(videoId) {
     if (!tracks) {
         return null;
     }
-    var out = tracks.map(t => t['$'].lang_code).join(os.EOL);
-    return out + os.EOL;
+    return tracks.map(t => t['$'].lang_code);
 }
 
 async function donwloadSubtitles(videoId, languageCode) {
