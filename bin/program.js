@@ -5,15 +5,15 @@ const { listLanguages, donwloadSubtitles } = require('../src');
     program
         .command('list-languages <video-id>')
         .description('list available subtitle languages')
-        .action((videoId) => {
-            process.stdout.write(listLanguages(videoId));
+        .action(async (videoId) => {
+            process.stdout.write(await listLanguages(videoId));
         })
 
     program
         .command('download-subtitles <video-id> <language-code>')
         .description('downloads subtitles for given 2-letter language code and output SRT')
-        .action((videoId, languageCode) => {
-            process.stdout.write(donwloadSubtitles(videoId, languageCode));
+        .action(async (videoId, languageCode) => {
+            process.stdout.write(await donwloadSubtitles(videoId, languageCode));
         });
 
     program.parse(process.argv);
