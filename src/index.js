@@ -40,7 +40,7 @@ async function donwloadSubtitles(videoId, languageCode) {
         var prev = srtObjects[i - 1];
         if (prev) {
             if (!Number.isFinite(prev.toSeconds)) {
-                prev.toSeconds = Math.min(next.fromSeconds, next.fromSeconds + textReadingDurationSeconds(prev.text));
+                prev.toSeconds = Math.min(next.fromSeconds, prev.fromSeconds + textReadingDurationSeconds(prev.text));
             }
         }
     })
@@ -50,8 +50,8 @@ async function donwloadSubtitles(videoId, languageCode) {
 
 function textReadingDurationSeconds(text) {
     // http://www.permondo.eu/volunteers/introduction-to-subtitling/#:~:text=The%20subtitle%20(formed%20by%202,of%206%20seconds%20on%20screen.
-    var secondsPerChar = 70 / 6;
-    return text.length * secondsPerChar;
+    var secondsPerChar = 6 / 70;
+    return Math.max(1, text.length * secondsPerChar);
 }
 
 module.exports = {
