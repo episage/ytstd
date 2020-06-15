@@ -4,6 +4,8 @@
   "main": "index.js",
   "author": "Tomasz Ciborski <tilosag@gmail.com>",
   "license": "MIT",
+  "bin": "./bin/cli.js",
+  "keywords": ["youtube", "subtitle", "downloader", "subtitles", "download", "video", "text"],
   "dependencies": {
     "commander": "^5.1.0",
     "lodash": "^4.17.15",
