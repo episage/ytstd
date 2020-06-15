@@ -74,6 +74,6 @@ function toSrtTimeString(secondsTotal) {
 function toSrt(srtObjects) {
     const str = srtObjects.map(({ id, fromSeconds, toSeconds, text }) => {
         return `${id}\n${toSrtTimeString(fromSeconds)} --> ${toSrtTimeString(toSeconds)}\n${text}\n\n`;
-    }) + '\n';
+    }).join('') + '\n';
     return str;
 }
