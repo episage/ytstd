@@ -1,15 +1,23 @@
 {
   "name": "ytstd",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "YouTube subtitles downloader",
   "main": "src/index.js",
   "author": "Tomasz Ciborski <tilosag@gmail.com>",
   "license": "UNLICENSED",
   "bin": "./bin/cli.js",
-  "keywords": ["youtube", "subtitle", "downloader", "subtitles", "download", "video", "text"],
+  "keywords": [
+    "youtube",
+    "subtitle",
+    "downloader",
+    "subtitles",
+    "download",
+    "video",
+    "text"
+  ],
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/episage/ytstd.git"
+    "type": "git",
+    "url": "https://github.com/episage/ytstd.git"
   },
   "dependencies": {
     "commander": "^5.1.0",
