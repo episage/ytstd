@@ -8,7 +8,11 @@ async function listLanguages(videoId) {
     var xml = await (await fetch(url)).text();
     var parser = new xml2js.Parser();
     var jso = await parser.parseStringPromise(xml)
-    var out = jso.transcript_list.track.map(t => t['$'].lang_code).join(os.EOL);
+    var tracks = _.get(jso, 'jso.transcript_list');
+    if (!tracks) {
+        return null;
+    }
+    var out = tracks.map(t => t['$'].lang_code).join(os.EOL);
     return out + os.EOL;
 }
 
