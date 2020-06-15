@@ -31,3 +31,14 @@ npm install --global ytstd
 ```
 
 ## Help
+```bash
+Usage: cli [options] [command]
+
+Options:
+  -h, --help                                     display help for command
+
+Commands:
+  list-languages <video-id>                      list available subtitle languages
+  download-subtitles <video-id> <language-code>  downloads subtitles for given 2-letter language code and output SRT
+  help [command]                                 display help for command
+```
