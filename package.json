@@ -6,6 +6,10 @@
   "license": "UNLICENSED",
   "bin": "./bin/cli.js",
   "keywords": ["youtube", "subtitle", "downloader", "subtitles", "download", "video", "text"],
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/episage/ytstd.git"
+  },
   "dependencies": {
     "commander": "^5.1.0",
     "lodash": "^4.17.15",
