@@ -1,5 +1,7 @@
 # ytstd - YouTube subtitles downloader
 
+Download YouTube video subtitles in SRT format
+
 ## Example Usage
 
 ```bash
@@ -59,3 +61,7 @@ Commands:
   download-subtitles <video-id> <language-code>  downloads subtitles for given 2-letter language code and output SRT
   help [command]                                 display help for command
 ```
+
+## Friends
+
+ - [node-ytdl - YouTube video downloader with CLI support](https://github.com/fent/node-ytdl)
